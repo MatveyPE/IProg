@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="icon" type="image/x-icon" href="../Picture/tt1.JPG">
+<script type="text/javascript" href="../My_SIte/js/script.js"></script>
+    <meta charset="UTF-8">
+<title>Отель Аура</title>
+</head>
+
+<body>
+
+<?php 
+  $host = 'localhost';
+  $user = 'root';
+  $pass = '';
+  $db_name = 'admin';
+  $link = nysqli_connect($host, $user, $pass, $db_name);
+
+  if (!$link)
+  {
+      echo 'Не могу соедениться с БД, код ошибки: '.mysqli_coonect_errno(). ',ошибка' .mysqli_connect_error();
+      exit;
+  }
+?>
+
+<?php
+  if(isset($_POST["Stand01"])){
+  $sql = mysqli_query($link, "INSERT INTO `BookingForm` (`ФИО`,`НомерТелефона|E-mail`,`Номер`,`Критерий`,`КоличествоЛюдей`,`ДатаЗаезда`,`ДатаВыезда`) VALUES ('{$_POST['Stand01']}', '{$_POST['Stand02']}', '{$_POST['Stand03']}', '{$_POST['Stand04']}', '{$_POST['Stand05']}', '{$_POST['Stand06']}','{$_POST['Stand07']}',  )");
+}
+?>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <img src="../Picture/tt1.JPG" class="img-thumbnail" width="50px">
+        <a class="navbar-brand" href="index.html">Отель Аура</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="NumberOfRooms.html">Номера</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Entertainments.html">Развлечения</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Feedback.html">Отзывы</a>
+                </li>
+            </ul>
+            <ul>
+               <div class="info1">
+                   Ульяновск, пр-т Нариманова, дом 12  | +7(8422)73-50-03 
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+  <div class="row g-2">
+    <div class="col-6">
+      <div class="p-3 border bg-light">          
+        <div class ="Carusel">
+        <div id="carousel1" class="carousel slide" data-bs-touch="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        <img src="../Picture/Rooms/st1.jpg" class="d-block w-100" alt="Стандарт1">
+        </div>
+        <div class="carousel-item">
+        <img src="../Picture/Rooms/st3.jpg" class="d-block w-100" alt="Стандарт2">
+        </div>
+        <div class="carousel-item">
+        <img src="../Picture/Rooms/st4.jpg" class="d-block w-100" alt="Стандарт3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+
+        <div class="Accord">
+    <div class="accordion accordion-flush" id="accordion1">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne1">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne1" aria-expanded="false" aria-controls="flush-collapseOne">
+        <b>СТАНДАРТ</b>
+      </button>
+    </h2>
+    <div id="flush-collapseOne1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordion1">
+      <div class="accordion-body">
+        <p> две односпальных кровати разм. 90 на 200 см; прикроватные тумбы; письменный стол; стулья; зеркало; телевизор; холодильник;
+        шкаф для одежды; <p> фен; <p> душевая комната; <p> косметические принадлежности; <p> комплект полотенец</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo1">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo1" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Цена
+      </button>
+    </h2>
+    <div id="flush-collapseTwo1" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordion1">
+      <div class="accordion-body"><p> <b> Включая завтрак:</b> 1 чел: 2200 руб. 2 чел: 3200 руб. <p> <b> Включая завтрак и ужин:</b> 1 чел: 2600 руб. 2 чел: 4000 руб.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree1">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree1" aria-expanded="false" aria-controls="flush-collapseThree">
+        Забронировать
+      </button>
+    </h2>
+    <div id="flush-collapseThree1" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordion1">
+      <div class="accordion-body">
+
+<form action="#" th:action="@{/sendEmail}" th:object="${emailForm}" method="post" class="row g-3 needs-validation" novalidate>
+    <p style="color:red" th:text="${error}"></p>
+  <div class="col-md-6">
+    <label for="Stand01" class="form-label">ФИО</label>
+    <input type="text" th:field="*{fio}" class="form-control" name="Stand01" id="Stand01" required>
+    <div class="valid-feedback">
+      Все хорошо!
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="Stand02" class="form-label">Номер Телефона | E-mail</label>
+    <input type="text" th:field="*{contacts}" class="form-control" name="Stand02" id="Stand02" required>
+    <div class="valid-feedback">
+      Все хорошо!
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="Stand03" class="form-label">Номер</label>
+    <input type="text" th:field="*{number}" class="form-control" name="Stand03" id="Stand03" value="Стандарт" required>
+  </div>
+  <div class="col-md-6">
+    <label for="Stand04" th:field="*{criteria}" class="form-label">Критерий</label>
+    <select class="form-select" name="Stand04" id="Stand04" required>
+      <option>Включая завтрак</option>
+      <option>Включая завтрак и ужин</option>
+    </select>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите критерий
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="Stand05" class="form-label">Количество людей</label>
+    <input type="text" th:field="*{col}" class="form-control" name="Stand05" id="Stand05" required>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите количество проживающих
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="Stand06" class="form-label">Дата заезда</label>
+      <input type="date" th:field="*{date1}" class="form-control"  id="Stand06" name="Stand06" placeholder="Дата заезда" required>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите период проживания
+    </div>
+  </div>
+  <div class="col-md-6">
+  <label for="Stand07" class="form-label">Дата выезда</label>
+      <input type="date" th:field="*{date2}" class="form-control" id="Stand07" name="Stand07" placeholder="Дата выезда" required>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите период проживания
+    </div>
+  </div>
+  <div class="col-12">
+    <form method="post">
+    <button class="btn btn-primary" type="submit" name="submit1">Отправить форму</button>
+    </form>
+  </div>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    </div>
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+          <div class ="Carusel">
+<div id="carousel2" class="carousel slide" data-bs-touch="false">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../Picture/Rooms/pl1.jpg" class="d-block w-100" alt="Полу-люкс1">
+    </div>
+    <div class="carousel-item">
+      <img src="../Picture/Rooms/pl2.jpg" class="d-block w-100" alt="Полу-люкс2">
+    </div>
+    <div class="carousel-item">
+      <img src="../Picture/Rooms/pl3.jpg" class="d-block w-100" alt="Полу-люкс3">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+          <div class="Accord">
+    <div class="accordion accordion-flush" id="accordion2">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne2" aria-expanded="false" aria-controls="flush-collapseOne2">
+        <b>ПОЛУ-ЛЮКС</b>
+      </button>
+    </h2>
+    <div id="flush-collapseOne2" class="accordion-collapse collapse" aria-labelledby="flush-headingOne2" data-bs-parent="#accordion2">
+      <div class="accordion-body">
+        две односпальных кровати разм. 90 на 200 см; прикроватные тумбы; мягкая зона; письменный стол; журнальный столик; стулья; зеркало; КОНДИЦИОНЕР;
+        телевизор; холодильник; шкаф для одежды; <p> фен; <p> душевая комната; <p>косметические принадлежности; <p>комплект полотенец,халат и тапочки;</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo2">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo2" aria-expanded="false" aria-controls="flush-collapseTwo2">
+        Цена
+      </button>
+    </h2>
+    <div id="flush-collapseTwo2" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo2" data-bs-parent="#accordion2">
+      <div class="accordion-body"><p> <b> Включая завтрак:</b> 1 чел: 4000 руб. 2 чел: 4500 руб. <p> <b> Включая завтрак и ужин:</b> 1 чел: 4400 руб. 2 чел: 4300 руб.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree2">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree2" aria-expanded="false" aria-controls="flush-collapseThree2">
+        Забронировать
+      </button>
+    </h2>
+    <div id="flush-collapseThree2" class="accordion-collapse collapse" aria-labelledby="flush-headingThree2" data-bs-parent="#accordion2">
+      <div class="accordion-body">
+<form class="row g-3 needs-validation" novalidate>
+  <div class="col-md-6">
+    <label for="PLux01" class="form-label">ФИО</label>
+    <input type="text" class="form-control" id="PLux01" required>
+    <div class="valid-feedback">
+      Все хорошо!
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="PLux02" class="form-label">Номер Телефона | E-mail</label>
+    <input type="text" class="form-control" id="PLux02" required>
+    <div class="valid-feedback">
+      Все хорошо!
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="PLux03" class="form-label">Номер</label>
+    <input type="text" class="form-control" id="PLux03" value="Полу-люкс" required>
+  </div>
+  <div class="col-md-6">
+    <label for="PLux04" class="form-label">Критерий</label>
+    <select class="form-select" id="PLux04" required>
+      <option>Включая завтрак</option>
+      <option>Включая завтрак и ужин</option>
+    </select>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите критерий
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="PLux05" class="form-label">Количество людей</label>
+    <input type="text" class="form-control" id="PLux05" required>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите количество проживающих
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="PLux06" class="form-label">Дата заезда</label>
+      <input type="date" class="form-control" id="PLux06" name="date" placeholder="Дата заезда" required>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите период проживания
+    </div>
+  </div>
+  <div class="col-md-6">
+  <label for="PLux07" class="form-label">Дата выезда</label>
+      <input type="date" class="form-control" id="PLux07" name="date" placeholder="Дата выезда" required>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите период проживания
+    </div>
+  </div>
+  <div class="col-12">
+    <form method="post">
+    <button href="result.html" class="btn btn-primary" type="submit" name="submit" >Отправить форму</button>
+    </form>
+  </div>
+</form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+          <div class ="Carusel">
+<div id="carousel3" class="carousel slide" data-bs-touch="false">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../Picture/Rooms/luxx1.jpg" class="d-block w-100" alt="Люкс1">
+    </div>
+    <div class="carousel-item">
+      <img src="../Picture/Rooms/luxx2.jpg" class="d-block w-100" alt="Люкс2">
+    </div>
+    <div class="carousel-item">
+      <img src="../Picture/Rooms/luxx3.jpg" class="d-block w-100" alt="Люкс3">
+    </div>
+    <div class="carousel-item">
+      <img src="../Picture/Rooms/luxx4.jpg" class="d-block w-100" alt="Люкс4">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="p-3 border bg-light">
+          <div class="Accord">
+    <div class="accordion accordion-flush" id="accordion3">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne3">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne3" aria-expanded="false" aria-controls="flush-collapseOne3">
+        <b>ЛЮКС</b>
+      </button>
+    </h2>
+    <div id="flush-collapseOne3" class="accordion-collapse collapse" aria-labelledby="flush-headingOne3" data-bs-parent="#accordion3">
+      <div class="accordion-body">
+        двухспальная кровать разм. 180 на 200 см.; ДЖАКУЗИ; письменный стол; кофейный столик; стулья; зеркало; КОНДИЦИОНЕР; телевизор; холодильник;
+        шкаф для одежды; фен; душевая комната; косметические принадлежности; комплект полотенец, халат и тапочки;
+        <p> Для молодоженов: комплимент от отеля – шампанское; доставка завтрака в номер – «кофе в постель»; эксклюзивный ROOM SERVIS; предусмотрен удобный для вас расчётный час;</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo3">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo3" aria-expanded="false" aria-controls="flush-collapseTwo3">
+        Цена:
+      </button>
+    </h2>
+    <div id="flush-collapseTwo3" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo3" data-bs-parent="#accordion3">
+      <div class="accordion-body"><p> <b> Включая завтрак:</b> 1 чел: 5000 руб. 2 чел: 5000 руб. <p> <b> Включая завтрак и ужин:</b> 1 чел: 5400 руб. 2 чел: 5800 руб.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree3">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree3" aria-expanded="false" aria-controls="flush-collapseThree3">
+        Забронировать:
+      </button>
+    </h2>
+    <div id="flush-collapseThree3" class="accordion-collapse collapse" aria-labelledby="flush-headingThree3" data-bs-parent="#accordion3">
+      <div class="accordion-body">
+        <form class="row g-3 needs-validation" novalidate>
+  <div class="col-md-6">
+    <label for="Lux01" class="form-label">ФИО</label>
+    <input type="text" class="form-control" id="Lux01" required>
+    <div class="valid-feedback">
+      Все хорошо!
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="Lux02" class="form-label">Номер Телефона | E-mail</label>
+    <input type="text" class="form-control" id="Lux02" required>
+    <div class="valid-feedback">
+      Все хорошо!
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="Lux03" class="form-label">Номер</label>
+    <input type="text" class="form-control" id="Lux03" value="Люкс" required>
+  </div>
+  <div class="col-md-6">
+    <label for="Lux04" class="form-label">Критерий</label>
+    <select class="form-select" id="Lux04" required>
+      <option>Включая завтрак</option>
+      <option>Включая завтрак и ужин</option>
+    </select>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите критерий
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="Lux05" class="form-label">Количество людей</label>
+    <input type="text" class="form-control" id="Lux05" required>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите количество проживающих
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="Lux06" class="form-label">Дата заезда</label>
+      <input type="date" class="form-control" id="Lux06" name="date" placeholder="Дата заезда" required>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите период проживания
+    </div>
+  </div>
+  <div class="col-md-6">
+  <label for="Lux07" class="form-label">Дата выезда</label>
+      <input type="date" class="form-control" id="Lux07" name="date" placeholder="Дата выезда" required>
+    <div class="invalid-feedback">
+      Пожалуйста, укажите период проживания
+    </div>
+  </div>
+  <div class="col-12">
+    <form method="post">
+    <button href="../My_SIte/js/script.js" class="btn btn-primary" type="submit" name="submit">Отправить форму</button>
+    </form>
+  </div>
+        </form></div>
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">© All rights reserved. Сеть отелей, 1999-2022 год. &copy; Политика обработки персональных данных ООО «ЗУРО»
+                </p>
+            </div>
+        </div>
+    </div>                   
+</footer>
+</html>
