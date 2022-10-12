@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Простая обработка формы на Spring MVC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Результат обработки формы</h1>
+    <table>
+        <tr>
+            <td>ФИО:</td>
+            <td><p th:text="${emailForm.fio}" /></td>
+        </tr>
+        <tr>
+            <td>Контакты:</td>
+            <td> <p th:text="${emailForm.contacts}" /></td>
+        </tr>
+        <tr>
+            <td>Номер:</td>
+            <td><p th:text="${emailForm.namber}" /></td>
+        </tr>
+        <tr>
+            <td>Критерий:</td>
+            <td><p th:text="${emailForm.criteria}" /></td>
+        </tr>
+        <tr>
+            <td>Количество людей:</td>
+            <td><p th:text="${emailForm.col}" /></td>
+        </tr>
+        <tr>
+            <td>Дата заеда:</td>
+            <td><p th:text="${emailForm.date1}" /></td>
+        </tr>
+        <tr>
+            <td>Дата выезда:</td>
+            <td><p th:text="${emailForm.date2}" /></td>
+        </tr>
+    </table>
+    <a href="NumberOfRooms.html">Забронировать другой номер</a>
+</body>
+</html>
