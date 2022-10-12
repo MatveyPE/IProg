@@ -1,30 +1,30 @@
 package email.model;
 
 public class EmailForm {
-    private String fio;
-    private String contacts;
+    private String subject;
+    private String to;
 
     public String getSubject() {
-        return fio;
+        return subject;
     }
 
     public void setSubject(String subject) {
-        this.fio = subject;
+        this.subject = subject;
     }
 
     public String getTo() {
-        return contacts;
+        return to;
     }
 
     public void setTo(String to) {
-        this.contacts = contacts;
+        this.to = to;
     }
 
     @Override
     public String toString() {
         return "EmailForm{" +
-                "subject='" + fio + '\'' +
-                ", to='" + contacts + '\'' +
+                "subject='" + subject + '\'' +
+                ", to='" + to + '\'' +
                 '}';
     }
 }

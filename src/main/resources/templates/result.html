@@ -8,34 +8,18 @@
 	<h1>Результат обработки формы</h1>
     <table>
         <tr>
-            <td>ФИО:</td>
-            <td><p th:text="${emailForm.fio}" /></td>
+            <td>Тема:</td>
+            <td><p th:text="${emailForm.subject}" /></td>
         </tr>
         <tr>
-            <td>Контакты:</td>
-            <td> <p th:text="${emailForm.contacts}" /></td>
+            <td>Кому:</td>
+            <td> <p th:text="${emailForm.to}" /></td>
         </tr>
         <tr>
-            <td>Номер:</td>
-            <td><p th:text="${emailForm.namber}" /></td>
-        </tr>
-        <tr>
-            <td>Критерий:</td>
-            <td><p th:text="${emailForm.criteria}" /></td>
-        </tr>
-        <tr>
-            <td>Количество людей:</td>
-            <td><p th:text="${emailForm.col}" /></td>
-        </tr>
-        <tr>
-            <td>Дата заеда:</td>
-            <td><p th:text="${emailForm.date1}" /></td>
-        </tr>
-        <tr>
-            <td>Дата выезда:</td>
-            <td><p th:text="${emailForm.date2}" /></td>
+            <td>Сообщение:</td>
+            <td><p th:text="${emailForm.message}" /></td>
         </tr>
     </table>
-    <a href="NumberOfRooms.html">Забронировать другой номер</a>
+    <a href="/">Отправить другое сообщение</a>
 </body>
 </html>

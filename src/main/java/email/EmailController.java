@@ -13,16 +13,16 @@ public class EmailController {
     @GetMapping("/")
     public String indexForm(Model model) {
         model.addAttribute("emailForm", new EmailForm());
-        return "NumberOfRooms";
+        return "index";
     }
 
     @PostMapping("/sendEmail")
     public String sendEmail(@ModelAttribute EmailForm emailForm, Model model) {
         if (emailForm.getTo().isEmpty()) {
-            model.addAttribute("error", "Поля не должны быть пустыми");
-            return "NumberOfRooms";
+            model.addAttribute("error", "'Кому' не должно быть пустым");
+            return "index";
         }
-        return "NumberOfRooms";
+        return "result";
     }
 
 }

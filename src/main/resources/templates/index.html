@@ -1,93 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="icon" type="image/x-icon" href="../Picture/tt1.JPG">
-    <meta charset="UTF-8">
-    <title>Отель Аура</title>
+    <title>Простая обработка формы на Spring MVC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <img src="../Picture/tt1.JPG" class="img-thumbnail" width="50px">
-        <a class="navbar-brand" href="index.html">Отель Аура</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="NumberOfRooms.html">Номера</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Entertainments.html">Развлечения</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Feedback.html">Отзывы</a>
-                </li>
-            </ul>
-            <ul>
-                <div class="info1">
-                   Ульяновск, пр-т Нариманова, дом 12  | +7(8422)73-50-03 
-                </div>
-            </ul>
-        </div>
-        </div>
-    </div>
-</nav>
-
-<div class="container">
-  <div class="row g-2">
-    <div class="col-6">
-      <div class="p-3 border bg-light"> <img src="../Picture/aura-fasad.jpg" class="figure-img img-fluid rounded" alt="Фасад здания"> </div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light"><p> Отель  «Аура» открыл  свои двери  в  2013 году.  Гостиничный комплекс расположен  на одном из главных проспектов  г. Ульяновска - Нариманова -12, в его северной части. Удобное расположение позволяет  добраться в любой район города: центр города – 5 минут (шаговая доступность),  10 минут до Президентского моста через р. Волгу,15 минут до Автовокзала, 35 минут до Аэропорта.</p> </div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light"> <p>Здание оборудовано современными средствами безопасности и  находится под вневедомственной  охраной. Автономное отопление позволяет контролировать микроклимат в помещении, бесперебойно обеспечивать горячее водоснабжение.</p> </div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light"> <img src="../Picture/aura-resep.jpg" class="figure-img img-fluid rounded" alt="Фасад здания"> </div>
-    </div>
-     <div class="col-6">
-      <div class="p-3 border bg-light"> <img src="../Picture/aura-cafe.jpg" class="figure-img img-fluid rounded" alt="Кафе"> </div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light"><p>Гостям предоставляется возможность выбрать удобный для себя способ расчёта: наличный   или безналичный. Принимаются к оплате  кредитные карты.  Работает система скидок для постоянных гостей и групповых размещений.</p></div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light"><p>Персонал отеля внимательно относится к любым пожеланиям своих гостей и поможет в решение любых проблем. Здесь можно комфортно отдохнуть и плодотворно потрудиться. У нас всегда благоприятная АУРА.</p></div>
-    </div>
-    <div class="col-6">
-      <div class="p-3 border bg-light"> <img src="../Picture/aura_meetingroom.jpg" class="figure-img img-fluid rounded" alt="Комната переговоров"> </div>
-    </div>
-  </div>
-</div>
+<h1>Форма</h1>
+<form action="#" th:action="@{/sendEmail}" th:object="${emailForm}" method="post">
+    <p style="color:red" th:text="${error}"></p>
+    <table>
+        <tr>
+            <td>Тема:</td>
+            <td><input type="text" th:field="*{subject}"/></td>
+        </tr>
+        <tr>
+            <td>Кому:</td>
+            <td><input type="text" th:field="*{to}"/></td>
+        </tr>
+            <td colspan="2"><input type="submit" value="Отправить"/></td>
+        </tr>
+    </table>
+</form>
 </body>
-<footer class="site-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-            </div>
-            <hr>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-                <p class="copyright-text">© All rights reserved. Сеть отелей, 1999-2022 год. &copy; Политика обработки персональных данных ООО «ЗУРО»
-                </p>
-            </div>
-        </div>
-    </div>                   
-</footer>
 </html>
